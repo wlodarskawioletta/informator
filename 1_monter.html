@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monter Zabudowy - Informator (Druk A5)</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        @page {
+            size: A5;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FFFFFF;
+            color: #2D3748;
+            margin: 0 auto;
+            width: 148mm;
+            height: 210mm;
+            padding: 8mm;
+            font-size: 10px;
+            box-sizing: border-box;
+            overflow: hidden;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .container-a5 {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Typography & Hero */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: #1E293B;
+            /* Slate Navy */
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+            line-height: 1.4;
+        }
+
+        .hero-text {
+            font-weight: 800;
+            font-size: 24px;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            color: #1E293B;
+        }
+
+        .text-profession {
+            color: #F97316;
+            /* Industrial Orange */
+        }
+
+        .lead {
+            font-size: 10.5px;
+            font-weight: 400;
+            line-height: 1.45;
+        }
+
+        /* Badges & Tags */
+        .primary-badge {
+            display: inline-block;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background-color: #D9231D;
+            color: #FFFFFF;
+            margin-right: 4px;
+            margin-bottom: 8px;
+        }
+
+        .tech-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 3px 6px;
+            background-color: #F0F4F8;
+            border: 1px solid #E2E8F0;
+            border-radius: 4px;
+            font-size: 8px;
+            font-weight: 600;
+            color: #2D3748;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        .tech-pill i {
+            margin-right: 3px;
+            font-size: 9px;
+            color: #1E293B;
+        }
+
+        /* Hero Image */
+        .hero-image {
+            width: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        /* Features Section */
+        .section-title {
+            font-weight: 800;
+            font-size: 16px;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .feature-box {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .feature-icon-wrapper {
+            flex-shrink: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #F0F4F8;
+            border: 1px solid #E2E8F0;
+            color: #1E293B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .feature-content h3 {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            color: #1E293B;
+        }
+
+        .feature-content p {
+            color: #2D3748;
+            font-size: 9px;
+            line-height: 1.35;
+        }
+
+        /* Modules / Cards */
+        .qual-card {
+            background-color: #F0F4F8;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 10px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .qual-badge {
+            font-size: 8px;
+            font-weight: 700;
+            background-color: #1E293B;
+            color: #FFFFFF;
+            padding: 3px 6px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 6px;
+            align-self: flex-start;
+        }
+
+        .qual-text {
+            color: #2D3748;
+            font-size: 9.5px;
+            font-weight: 500;
+        }
+
+        /* QR Section */
+        .qr-card {
+            background-color: #F0F4F8;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .qr-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .qr-content h4 {
+            color: #1E293B;
+            font-size: 10px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .qr-content p {
+            font-size: 8px;
+            color: #2D3748;
+        }
+
+        /* Utility */
+        .mb-sec {
+            margin-bottom: 16px;
+        }
+
+        .row-tight {
+            margin-left: -6px;
+            margin-right: -6px;
+        }
+
+        .row-tight>[class*="col-"] {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-a5">
+        <!-- Hero Section -->
+        <div class="row row-tight align-items-center mb-sec">
+            <div class="col-6">
+                <!-- Zdjęcie wygenerowane przez AI -->
+                <img src="assets/monter_hero.png" alt="Praca montera zabudowy" class="hero-image">
+                <div class="d-flex justify-content-start flex-wrap mt-2">
+                    <span class="primary-badge"><i class="bi bi-hammer me-1"></i> GWARANCJA PRACY</span>
+                    <span class="primary-badge"><i class="bi bi-shield-check me-1"></i> ZAJĘCIA PRAKTYCZNE W SZKOLE</span>
+                </div>
+            </div>
+            <div class="col-6">
+                <h1 class="hero-text mt-1 mb-1">MONTER <br>ZABUDOWY</span> I
+                    <span class="text-profession">ROBÓT<br>WYKOŃCZENIOWYCH </span>W BUDOWNICTWIE
+                </h1>
+                <span class="primary-badge bg-dark border-0 mb-2" style="background-color: #4A5568 !important;"><i
+                        class="bi bi-award-fill me-1"></i> PATRONAT REX-BUD & ATLAS</span>
+                <span class="primary-badge bg-dark border-0 mb-2"><i class="bi bi-mortarboard-fill me-1"></i> SZKOŁA
+                    BRANŻOWA I STOPNIA</span>
+                <p class="lead">
+                    Kierunek przygotowuje do wykonywania zadań zawodowych w zakresie montowania systemów suchej zabudowy, wykonywania robót malarskich, tapeciarskich, posadzkarskich oraz okładzinowych. Po zdaniu egzaminu zawodowego i ukończeniu Branżowej Szkoły I Stopnia uczeń uzyskuje dyplom zawodowy w zawodzie monter zabudowy i robót wykończeniowych w budownictwie.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="row row-tight mb-sec">
+            <div class="col-12">
+                <h2 class="section-title">Co nas wyróżnia?</h2>
+            </div>
+
+            <div class="col-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper"><i class="bi bi-building-check"></i></div>
+                    <div class="feature-content">
+                        <h3>Prktyczne umiejętności</h3>
+                        <p class="mb-1">Absolwenci nposiadaja szeroki zakres uprawnień do wykonywania różnorodnych prac budowlanych obejmujących m.in. wykonywanie tynków, okładzin ściennych i podłogowych, montaż suchej zabudowy oraz prace malarskie i dekoracyjne, zgodnie z dokumentacją techniczną i obowiązującymi normami budowlanymi. </p>
+                        <div class="d-flex flex-wrap mt-1">
+                            <span class="tech-pill"><i class="bi bi-briefcase"></i> Tynki</span>
+                            <span class="tech-pill"><i class="bi bi-person-gear"></i> Prace okładzinowe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper"><i class="bi bi-tools"></i></div>
+                    <div class="feature-content">
+                        <h3>Kursy i szkolenie</h3>
+                        <p class="mb-1">W trakcie trzyletniej nauki uczniowie mają możliwość udziału w szkoleniach odbywających się na terenie szkoły lub w siedzibach firm: ATLAS, WIENERBERGER, TUBĄDZIN, LEIER, KNAUF, ŚNIEŻKA, FAKRO, TIKURILLA.</p>
+                        <div class="d-flex flex-wrap mt-1">
+                            <span class="tech-pill"><i class="bi bi-award"></i> Pokazy </span>
+                            <span class="tech-pill"><i class="bi bi-award"></i> Szkolenia</span>
+                            <span class="tech-pill"><i class="bi bi-award"></i> Warsztaty</span>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper"><i class="bi bi-mortarboard-fill"></i></div>
+                    <div class="feature-content">
+                        <h3>Zatrudnienie</h3>
+                        <p class="mb-1">Po ukończeniu szkoły absolwenci mogą podjąć pracę w firmach remontowych lub wykonujących roboty wykończeniowe, w przedsiębiorstwach budowlanych, firmach rozbiórkowych lub też prowadzić własną działalność gospodarczą w tym zakresie.</p>
+                        <div class="d-flex flex-wrap mt-1">
+                            <span class="tech-pill"><i class="bi bi-house-check"></i> Rozbiórki</span>
+                            <span class="tech-pill"><i class="bi bi-book"></i> Remonty</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper"><i class="bi bi-arrow-up-right-circle"></i></div>
+                    <div class="feature-content">
+                        <h3>Perspektywa rozwoju</h3>
+                        <p class="mb-1">Absolwent szkoły kształcącej w zawodzie monter zabudowy i robót wykończeniowych w budownictwie może kontynuować naukę w Branżowej Szkole II Stopnia i uzyskać tytuł zawodowy: TECHNIK ROBÓT WYKOŃCZENIOWYCH W BUDOWNICTWIE</p>
+                        <div class="d-flex flex-wrap mt-1">
+                           <span class="tech-pill"><i class="bi bi-star"></i> Kontynuacja nauki</span>
+                            <span class="tech-pill"><i class="bi bi-star"></i> Tytuł Technika</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section: Qualifications & CTA -->
+        <div class="row row-tight mt-auto">
+            <div class="col-12">
+                <h3 class="section-title" style="margin-bottom: 6px;">Przystępujesz do egzaminu z jednej kwalifikacji w klasie trzeciej:</h3>
+            </div>
+
+            <div class="col-8">
+                <div class="qual-card h-100">
+                    <div class="d-flex align-items-center mb-1">
+                        <div class="qual-badge mb-0 me-2" style="background-color: #F97316;">BUD.11.</div>
+                       
+                    </div>
+                    <p class="qual-text mt-2">
+                        Wykonywanie robót montażowych, okładzinowych i wykończeniowych.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="qr-card">
+                    <img src="assets/qr_code_school_1772624518877.png" alt="Kod z rekrutacją" class="qr-image"
+                        onerror="this.src='assets/qr_code_it.png'">
+                    <div class="qr-content">
+                        <h4>Rozwiń pasję!</h4>
+                        <p>Zeskanuj kod QR i postaw kolejny, najważniejszy krok w swojej karierze!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
